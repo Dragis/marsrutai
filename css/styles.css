@@ -17,7 +17,7 @@ body, html {
 	align-items: center;
 	padding: 0px 20px;
 	height: 40px;
-	margin-bottom: 40px;
+	margin-bottom: 60px;
     box-shadow: 1px 1px 2px #787777;
 }
 
@@ -68,7 +68,7 @@ body, html {
 
 .searchItem {
     padding: 5px 5px;    
-    border: 1px solid rgb(190, 190, 190);
+    border-bottom: 1px solid rgb(190, 190, 190);
     display: inline-flex;
     align-items: center;
     flex-grow: 1;
@@ -126,7 +126,8 @@ body, html {
     /*background: #f8f8f8;*/
     /*border-radius: 3px;*/
     font-size: 15px;
-    border: 1px solid rgb(190, 190, 190);
+    border: none;
+    border-bottom: 1px solid rgb(190, 190, 190);
 	width: calc(100% - 150px);
 	padding-left: 10px;
 	height: 30px;
@@ -178,6 +179,20 @@ body, html {
 
 .gj-datepicker {
 	width: calc(100% - 150px);
+}
+
+
+.gj-datepicker>input:focus {
+	border: none;
+}
+
+.searchItem > .gj-datepicker {
+	width: 100%;
+	padding: 0px;
+}
+
+.searchItem > .gj-datepicker input {
+	padding: 2px 0px;
 }
 
 .gj-icon {
@@ -287,3 +302,88 @@ body, html {
 	color: red;
 	margin-right: 10px;
 }
+
+.routesHolder {
+	/*margin-top: 30px;*/
+    display: flex;
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
+    /*padding: 8px 20px;*/
+    flex-direction: column;
+}
+
+.routeWrapper {
+	margin-top: 20px;
+    background: #fff;
+    box-shadow: 1px 1px 2px #787777;
+}
+
+.routeInfo {
+	padding: 10px 30px;
+    border-bottom: 1px solid #bebebe;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.routeStops {
+	padding: 10px 30px;
+	display: flex;
+}
+
+.routeStops > div {
+	cursor: pointer;
+	width: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.routeStops-click {
+	margin-top: 10px;
+	height: 12px;
+	width: 12px;
+	background: rgb(190, 190, 190);
+	border-radius: 50px;
+	position: relative;
+	z-index: 1;
+}
+
+.routeStops-click_active {
+	background: #2b689d;
+}
+
+.routeStops-line {
+	/*z-index: 0;*/
+	position: absolute;
+	width: calc(50% - 12px);
+	width: 100px;
+	height: 2px;
+	background:  #2b689d;
+	background:  rgb(190, 190, 190);
+    top: 5px;
+    right: 0;
+}
+
+.routeStops-line_active {
+	background:  #2b689d;
+}
+
+.WeakDayHolder {
+	display: flex;
+}
+
+.WeakDayHolder > div {
+	margin: 0px 2px;
+	/*padding: 5px;*/
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	background: #2b689d;
+	color: #fff;
+	font-size: 12px; 
+}
+/*.routeStops > div:hover  > .routeStops-click{
+	background: #333;
+}*/
