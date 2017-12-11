@@ -27,6 +27,11 @@ $( "#datepicker" ).on( "change", function() {
 	drawRoutes(Search);
 });
 
+$( "#limit" ).on( "change", function() {
+	Search.Limit = $( "#limit" ).val();
+	drawRoutes(Search);
+});
+
 
 function drawRoutes(Srch) {
 		$.ajax({

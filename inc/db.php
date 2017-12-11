@@ -3,6 +3,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "marsrutai";
+setlocale(LC_ALL,"LT");
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);

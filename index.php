@@ -51,6 +51,14 @@
 <!-- 					<input class="SearchField" id="searchDriver" type="text" name="Search" placeholder="Vairuotojas">
 					<div class="SearchButton"><span class="glyphicon glyphicon-search"></span></div> -->
 				</div>
+				<div class="searchItem">					
+					<select class="SearchField" id="limit" placeholder="Rezultatai">
+					  <option value="10">10</option>
+					  <option value="20">20</option>
+					  <option value="50">50</option>
+					  <option value="100">100</option>
+					</select>
+				</div>
 
 				<?php
 				if ($_SESSION['User']["Type"] == "admin" || $_SESSION['User']["Type"] == "driver") {
