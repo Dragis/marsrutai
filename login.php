@@ -3,7 +3,7 @@
 	include('inc/db.php');
 	session_start();
 	$_SESSION['userID'] = "";
-	if(!empty($_SESSION['userID'])) {
+	if(!empty($_SESSION['User'])) {
 		header('Location: index.php');
 	} 
 ?>

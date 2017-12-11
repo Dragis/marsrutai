@@ -3,15 +3,8 @@
 	include('inc/db.php');
 	session_start();
 
-	if(empty($_SESSION['userID'])) {
+	if(empty($_SESSION['User'])) {
 		header('Location: login.php');
-	} else {
-			// $user_id = $_SESSION['user'];
-			// $user_is  = $conn->query("SELECT * FROM users WHERE id='$user_id' LIMIT 1");
-
-			// while ($row = $user_is->fetch_assoc()) {
-			// 		$user_name = $row["username"];
-			// }
 	}
 ?>
 
@@ -28,11 +21,10 @@
 	</head>
 	<body>
 
-<nav class="navbar navbar-default">
+<!-- <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -41,22 +33,47 @@
     </div>
     <div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Visi maršrutai <span class="sr-only">(current)</span></a></li>
-    	<li><a href="#">Mano maršrutai</a></li>
-        <li><a href="#">Pridėti maršrutą</a></li>
-        <li><a href="stops.php">Pridėti stotelę</a></li>
+        <li class="active"><a href="#">Maršrutai</a></li>
+        <li><a href="stops.php">Stotelės</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="inc/action-logout.php">Atsijungti</a></li>
       </ul>
     </div>
   </div>
-</nav>
+</nav> -->
 
+<div class="mainMenuWrapper">
+	<div class="menuLeft">
+		<a class="mainMenuItem  mainMenuItem-active" href="index.php">Maršrutai</a>
+		<a class="mainMenuItem" href="index.php">Stotelės</a>
+	</div>
+	<div class="menuRight">
+		<a class="mainMenuItem" href="inc/action-logout.php">Atsijungti</a>
+	</div>
+</div>
 
 	    <div class="container">
 			<div class="routesSearch">
+				<div class="searchItem">
+					<input class="SearchField" type="text" name="Search" placeholder="Pradinė stotelė">
+					<div class="SearchButton"><span class="glyphicon glyphicon-search"></span></div>
+				</div>
+				<div class="searchItem">
+					<input class="SearchField" type="text" name="Search" placeholder="Galinė stotelė">
+					<div class="SearchButton"><span class="glyphicon glyphicon-search"></span></div>
+				</div>
+				<div class="searchItem">
+					<input class="SearchField" type="text" name="Search" placeholder="Vairuotojas">
+					<div class="SearchButton"><span class="glyphicon glyphicon-search"></span></div>
+				</div>
 
+				<?php
+				if ($_SESSION['User']["Type"] == "admin" || $_SESSION['User']["Type"] == "driver") {
+					echo '<a href="addRoute.php" type="button" class="btn btn-primary myBtn">Pridėti</a>';
+				}
+
+				?>
 			</div>
 
 			<div class="routesHolder">

@@ -20,7 +20,7 @@ if (empty($User['password'])) {
   while ($row = $User->fetch_assoc()) {
     $data["success"] = true;
     $data["User"] = $row;
-    $_SESSION['userID'] = $row["ID"];
+    $_SESSION['User'] = $row;
   } 
 
   if (!$data["success"]) {

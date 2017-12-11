@@ -41,10 +41,10 @@
     </div>
     <div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="index.php">Visi maršrutai <span class="sr-only">(current)</span></a></li>
+        <li><a href="index.php">Maršrutai</a></li>
     	<li><a href="#">Mano maršrutai</a></li>
-        <li><a href="#">Pridėti maršrutą</a></li>
-        <li  class="active"><a href="stops.php">Pridėti stotelę</a></li>
+        <!-- <li><a href="#">Pridėti maršrutą</a></li> -->
+        <li  class="active"><a href="stops.php">Stotelės</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="inc/action-logout.php">Atsijungti</a></li>
@@ -55,20 +55,14 @@
 
 
 <div class="container">
-	<div class="row f-row">
+	<div class="f-row">
 		<form>
-		  <div class="form-group row">
+		  <div class="form-group row form-grouopFlex">
 		    <label for="staticEmail" class="col-sm-2 col-form-label">Pavadinimas</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="stopName" placeholder="Stotelės pavadinimas">
-		    </div>
+			<input type="text" class="form-control" id="stopName" placeholder="Stotelės pavadinimas">
+
+            <button class="myFab-btn" id="action-login"  type="button">+</button>
 		  </div>
-<!-- 		  <div class="form-group row">
-		    <label for="inputName" class="col-sm-2 col-form-label">Password</label>
-		    <div class="col-sm-10">
-		      <input type="password" class="form-control" id="inputName" placeholder="Password">
-		    </div>
-		  </div> -->
 		</form>
 	</div>
 </div>
