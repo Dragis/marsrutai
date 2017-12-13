@@ -56,7 +56,12 @@ while ($row = $Routes->fetch_assoc()) {
     $first = true;
     $return .= '<div class="routeStops">';
     while ($row2 = $Stops->fetch_assoc()) {
-      $return .= '<div>';
+      
+      if ($_SESSION['User']["Type"] == "passenger")
+        $return .= '<div data-stopid="'.$row2["ID"].'" data-routeid="'.$row["ID"].'"  class="SingleStop" >';
+      else
+        $return .= '<div data-stopid="'.$row2["ID"].'" data-routeid="'.$row["ID"].'"  class="SingleStop-driver" >';
+
         $return .= '<div class="routeStops-name">'.$row2["Name"].'</div>';
         $return .= '<div class="routeStops-time">'.date("H:i", strtotime($row2["Time"])).'</div>';
 
@@ -81,9 +86,28 @@ while ($row = $Routes->fetch_assoc()) {
       }
       $return .= '</div>';
     }
-
-
     $return .= '</div>';
+
+    if ($_SESSION['User']["Type"] == "passenger")
+    {
+      $return .= '<div id="Aplication-'.$row["ID"].'" class="ApplicationFormHolder">';
+        // $return .= '<span class="glyphicon glyphicon-menu-up"></span>';
+        $return .= '<div>';
+          $return .= '<span>';
+            $return .= '<span>Bagažo svoris(kg): </span>';
+            $return .= '<input class="Baggage" type="Number">';
+          $return .= '</span>';
+          $return .= '<span class="ApplicationMessage"></span>';
+          $return .= '<div class="AplicationRegister">Registruotis</div>';
+        $return .= '</div>';
+      $return .= '</div>';
+    } else {
+      $return .= '<div data-type="driver" id="Aplication-'.$row["ID"].'" class="ApplicationFormHolder">';
+        // $return .= '<span class="glyphicon glyphicon-menu-up"></span>';
+      $return .= '</div>';
+    }
+
+
   $return .= '</div>';
 } 
 

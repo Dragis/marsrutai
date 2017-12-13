@@ -29,6 +29,7 @@
 	            <form class="form-signin">
 	                <span id="reauth-email" class="reauth-email"></span>
 	                <input id="username" type="text" id="inputEmail" class="form-control" placeholder="Vardas" required autofocus>
+	                <!-- <input type="text" id="phone" class="form-control" placeholder="Telefono Numeris"> -->
 	                <input id="password" type="password" id="inputPassword" class="form-control" placeholder="Slaptažodis" required>
 
 					<div class="form-group btn-group" role="group"> 

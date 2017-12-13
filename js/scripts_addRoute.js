@@ -72,7 +72,7 @@ $( document ).ready(function() {
 				data: {Route: Route},
 			})
 			.always(function(rez) {
-				if (rez.Success)
+				if (rez.Success == true)
 					window.location.href = 'index.php';
 				else
 					$(".errorMessage").html(rez.error);

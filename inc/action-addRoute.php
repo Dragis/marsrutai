@@ -14,14 +14,13 @@ if (empty($Route["Name"]))
 if (empty($Route["Date"]))
 	$data["error"] = "Visi laukai turi būti užpildyti";
 
-var_dump($_SESSION["User"]);
-
 
 if (empty($data["error"])) {
 
 	if ($Route["Repeatable"] == "false")
 	{
 		$Days = "false";
+		$Route["Date"] = null;
 	}
 	else
 	{
