@@ -23,8 +23,8 @@
 
 <div class="mainMenuWrapper">
 	<div class="menuLeft">
-		<a class="mainMenuItem  mainMenuItem-active" href="index.php">Maršrutai</a>
-		<a class="mainMenuItem" href="index.php">Stotelės</a>
+		<a class="mainMenuItem " href="index.php">Maršrutai</a>
+		<a class="mainMenuItem  mainMenuItem-active" href="addRoute.php">Pridėti maršrutą</a>
 	</div>
 	<div class="menuRight">
 		<a class="mainMenuItem" href="inc/action-logout.php">Atsijungti</a>

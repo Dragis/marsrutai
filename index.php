@@ -25,8 +25,14 @@
 <div class="mainMenuWrapper">
 	<div class="menuLeft">
 		<a class="mainMenuItem  mainMenuItem-active" href="index.php">Maršrutai</a>
-		<a class="mainMenuItem" href="index.php">Stotelės</a>
-	</div>
+
+				<?php
+				if ($_SESSION['User']["Type"] == "admin" || $_SESSION['User']["Type"] == "driver") {
+					echo '<a href="addRoute.php" type="button" class="mainMenuItem">Pridėti maršrutą</a>';
+				}
+				?>
+
+			</div>
 	<div class="menuRight">
 		<a class="mainMenuItem" href="inc/action-logout.php">Atsijungti</a>
 	</div>
@@ -48,8 +54,6 @@
 				</div>
 				<div class="searchItem">
 					<input class="SearchField" placeholder="Data" id="datepicker" />
-<!-- 					<input class="SearchField" id="searchDriver" type="text" name="Search" placeholder="Vairuotojas">
-					<div class="SearchButton"><span class="glyphicon glyphicon-search"></span></div> -->
 				</div>
 				<div class="searchItem">					
 					<select class="SearchField" id="limit" placeholder="Rezultatai">
@@ -60,44 +64,11 @@
 					</select>
 				</div>
 
-				<?php
-				if ($_SESSION['User']["Type"] == "admin" || $_SESSION['User']["Type"] == "driver") {
-					echo '<a href="addRoute.php" type="button" class="btn btn-primary myBtn">Pridėti</a>';
-				}
 
-				?>
 			</div>
 
 			<div id="routesHolder" class="routesHolder">
 				<div class="routeWrapper">
-					<div class="routeInfo">
-						<div class="routeInfo-name">Kaunas-Vilnius</div>
-						<div class="routeInfo-Date">2017-06-05</div>
-						<div class="routeInfo-driver">Paulius</div>
-					</div>
-					<div class="routeStops">
-						<div>
-							<div class="routeStops-name">Kaunas</div>
-							<div class="routeStops-time">8:30</div>
-							<div class="routeStops-click routeStops-click_active">
-								<!-- <div class="routeStops-line"></div> -->
-							</div>
-						</div>
-						<div>
-							<div class="routeStops-name">Kaunas</div>
-							<div class="routeStops-time">8:30</div>
-							<div class="routeStops-click  routeStops-click_active">
-								<div class="routeStops-line routeStops-line_active"></div>
-							</div>
-						</div>
-						<div>
-							<div class="routeStops-name">Kaunas</div>
-							<div class="routeStops-time">8:30</div>
-							<div class="routeStops-click">
-								<div class="routeStops-line"></div>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 	    </div>

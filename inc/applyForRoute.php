@@ -21,12 +21,6 @@ $exists = $conn->query("SELECT * FROM applications
 
 if ($exists == 0)
 {
-  // $Date = $conn->query("SELECT * FROM routes WHERE ID=".$Stop["RouteID"]."  AND NumRow=".$Stop["RouteID"]."  limit 1");
-  // $Date = mysql_fetch_object($Date);
-  // $Time = $conn->query("SELECT Time FROM stops WHERE ID=".$Stop["StopID"]." limit 1");
-  // $Time = mysql_fetch_object($Time);
-  // var_dump($Date);
-  // var_dump($Time);
   $data["Success"] = $conn->query("INSERT INTO applications 
     SET 
     Username='".$_SESSION['User']["Username"]."' , 
