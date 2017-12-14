@@ -17,7 +17,7 @@ body, html {
 	align-items: center;
 	padding: 0px 20px;
 	height: 40px;
-	margin-bottom: 60px;
+	margin-bottom: 40px;
     box-shadow: 1px 1px 2px #787777;
 }
 
@@ -309,10 +309,12 @@ body, html {
     /*justify-content: space-between;*/
     /*align-items: center;*/
     /*padding: 8px 20px;*/
+    margin-bottom: 40px; 
     flex-direction: column;
 }
 
 .routeWrapper {
+    position: relative;
 	margin-top: 20px;
     background: #fff;
     box-shadow: 1px 1px 2px #787777;
@@ -442,3 +444,30 @@ font-weight: bold;
     border: 1px solid #273a4b;
     color: #fff;
 }
+
+.routeAction {
+    height: 26px;
+    width: 26px;
+    position: absolute;
+    left: -34px;
+    text-align: center;
+    padding-top: 4px;
+    background-color: #fff;
+    border-bottom: 1px solid #bebebe;
+    border-right: 1px solid #bebebe;
+    -o-transition: all 0.218s;
+    -moz-transition: all 0.218s;
+    -webkit-transition: all 0.218s;
+    transition: all 0.218s;
+    cursor: pointer;
+}
+
+.actionDelete:hover {
+    /*color: #fff;*/
+    background: #e87878;
+    -o-transition: all 0.218s;
+    -moz-transition: all 0.218s;
+    -webkit-transition: all 0.218s;
+    transition: all 0.218s;
+}
+

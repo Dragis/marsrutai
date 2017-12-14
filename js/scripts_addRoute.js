@@ -2,6 +2,7 @@
 $( document ).ready(function() {
 	Days = {};
 	Repeatable = true;
+	$("#dateSelect").slideUp(0);
 
 	$( ".chekboxWeekday" ).on( "click", function() {
 		$(this).toggleClass("inputCheckbox-active");
@@ -14,6 +15,7 @@ $( document ).ready(function() {
 
 	$( "#repeatable" ).on( "click", function() {
 		$("#weekdaySelect").slideDown("fast");
+		$("#dateSelect").slideUp("fast");
 		$( "#repeatable" ).addClass('inputCheckbox-active');
 		$( "#notRepeatable" ).removeClass('inputCheckbox-active');
 		Repeatable = true;
@@ -21,6 +23,7 @@ $( document ).ready(function() {
 
 	$( "#notRepeatable" ).on( "click", function() {
 		$("#weekdaySelect").slideUp("fast");
+		$("#dateSelect").slideDown("fast");
 		$( "#repeatable" ).removeClass('inputCheckbox-active');
 		$( "#notRepeatable" ).addClass('inputCheckbox-active');
 		Repeatable = false;

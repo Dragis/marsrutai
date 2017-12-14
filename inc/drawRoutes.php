@@ -32,6 +32,19 @@ $Routes  = $conn->query("SELECT * FROM routes ".$where."  LIMIT ".$Search["Limit
 
 while ($row = $Routes->fetch_assoc()) {
   $return .= '<div class="routeWrapper">';
+
+
+  if ($_SESSION["User"]["Type"] == "admin") {
+    $return .= '<div data-routeid="'.$row["ID"].'" class="routeAction actionDelete"><span class="glyphicon glyphicon-trash"></span></div>';
+    // $return .= '<div data-routeid="'.$row["ID"].'" class="routeAction actionEdit"><span class="glyphicon glyphicon-pencil"></span></div>';
+
+  } else if ($row["DriverID"] == $_SESSION["User"]["ID"]) {
+    $return .= '<div data-routeid="'.$row["ID"].'" class="routeAction actionDelete"><span class="glyphicon glyphicon-trash"></span></div>';
+    // $return .= '<div class="routeAction actionEdit"><span class="glyphicon glyphicon-pencil"></span></div>';
+  }
+
+
+
     $return .= '<div class="routeInfo">';
       $return .= '<div class="routeInfo-name">'.$row["Name"].'</div>';
 
@@ -91,7 +104,6 @@ while ($row = $Routes->fetch_assoc()) {
     if ($_SESSION['User']["Type"] == "passenger")
     {
       $return .= '<div id="Aplication-'.$row["ID"].'" class="ApplicationFormHolder">';
-        // $return .= '<span class="glyphicon glyphicon-menu-up"></span>';
         $return .= '<div>';
           $return .= '<span>';
             $return .= '<span>Bagažo svoris(kg): </span>';
@@ -103,7 +115,6 @@ while ($row = $Routes->fetch_assoc()) {
       $return .= '</div>';
     } else {
       $return .= '<div data-type="driver" id="Aplication-'.$row["ID"].'" class="ApplicationFormHolder">';
-        // $return .= '<span class="glyphicon glyphicon-menu-up"></span>';
       $return .= '</div>';
     }
 

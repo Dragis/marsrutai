@@ -11,14 +11,14 @@ $Route = $_POST["Route"];
 if (empty($Route["Name"]))
 	$data["error"] = "Visi laukai turi būti užpildyti";
 
-if (empty($Route["Date"]))
-	$data["error"] = "Visi laukai turi būti užpildyti";
 
 
 if (empty($data["error"])) {
 
 	if ($Route["Repeatable"] == "false")
 	{
+		if (empty($Route["Date"]))
+			$data["error"] = "Visi laukai turi būti užpildyti";
 		$Days = "false";
 		$Route["Date"] = null;
 	}

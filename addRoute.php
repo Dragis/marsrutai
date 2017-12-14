@@ -39,15 +39,15 @@
 					<input type="text" class="inputText" id="name">
 				</div>
 				<div class="inputItem">
-					<label class="inputLabel">Data: </label>
-					<input class="inputText" id="datepicker" />
-				</div>
-				<div class="inputItem">
 					<label  class="inputLabel">Pasikartojantis: </label>
 					<div class="chekboxGroup">
 						<div class="inputCheckbox" id="notRepeatable">Ne</div>
 						<div class="inputCheckbox inputCheckbox-active" id="repeatable">Taip</div>
 					</div>
+				</div>
+				<div class="inputItem" id="dateSelect" style="display: none;">
+					<label class="inputLabel">Data: </label>
+					<input class="inputText" id="datepicker" />
 				</div>
 				<div class="inputItem" id="weekdaySelect">
 					<label  class="inputLabel">Savaitės dienos: </label>

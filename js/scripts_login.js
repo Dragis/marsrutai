@@ -20,7 +20,7 @@ $( document ).ready(function() {
   $( "#action-register" ).on( "click", function() {
   	user.username = $("#username").val();
   	user.password = $("#password").val();
-  	user.password = $("#phone").val();
+  	// user.password = $("#phone").val();
 
 	$.ajax({
 		url: 'inc/action-register.php',
@@ -43,7 +43,7 @@ $( document ).ready(function() {
   $( "#action-login" ).on( "click", function() {
   	user.username = $("#username").val();
   	user.password = $("#password").val();
-  	user.password = $("#phone").val();
+  	// user.password = $("#phone").val();
   	// console.log(user);
 	$.ajax({
 		url: 'inc/action-login.php',

@@ -60,11 +60,11 @@ $('body').on('click', '.SingleStop-driver', function () {
 		Stop.RouteID = $(this).data("routeid");
 		Stop.StopID = $(this).data("stopid");
 
-		$(".Sliden").slideUp('fast');
+		$(".Sliden").slideUp(0);
 		$(".Sliden").removeClass('Sliden');
 		$(".SingleStop-active").removeClass('SingleStop-active');
 
-		$("#Aplication-"+Stop.RouteID).slideDown('fast');
+		$("#Aplication-"+Stop.RouteID).slideDown(0);
 		$("#Aplication-"+Stop.RouteID).addClass('Sliden');
 		$(this).addClass('SingleStop-active');
 
@@ -89,7 +89,7 @@ $('body').on('click', '.SingleStop-driver', function () {
 	} else {
 		Stop.RouteID = 0;
 		Stop.StopID = 0;
-		$(".Sliden").slideUp('fast');
+		$(".Sliden").slideUp(0);
 		$(".Sliden").removeClass('Sliden');
 		$(".SingleStop-active").removeClass('SingleStop-active');
 	}
@@ -116,6 +116,19 @@ $('body').on('click', '.AplicationRegister', function () {
 				$(".Sliden .ApplicationMessage").html(rez.Error);
 		});
 	}
+});
+
+$('body').on('click', '.actionDelete', function () {
+
+	$.ajax({
+		url: 'inc/action-deleteRoute.php',
+		type: 'POST',
+		dataType: 'json',
+		data: {RouteID: $(this).data("routeid")},
+	})
+	.always(function(rez) {
+		drawRoutes(Search);
+	});
 });
 
 
