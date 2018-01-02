@@ -36,11 +36,11 @@ while ($row = $Routes->fetch_assoc()) {
 
   if ($_SESSION["User"]["Type"] == "admin") {
     $return .= '<div data-routeid="'.$row["ID"].'" class="routeAction actionDelete"><span class="glyphicon glyphicon-trash"></span></div>';
-    // $return .= '<div data-routeid="'.$row["ID"].'" class="routeAction actionEdit"><span class="glyphicon glyphicon-pencil"></span></div>';
+    $return .= '<a href="editRoute.php?id='.$row["ID"].'" data-routeid="'.$row["ID"].'" class="routeAction actionEdit"><span class="glyphicon glyphicon-pencil"></span></a>';
 
   } else if ($row["DriverID"] == $_SESSION["User"]["ID"]) {
     $return .= '<div data-routeid="'.$row["ID"].'" class="routeAction actionDelete"><span class="glyphicon glyphicon-trash"></span></div>';
-    // $return .= '<div class="routeAction actionEdit"><span class="glyphicon glyphicon-pencil"></span></div>';
+    $return .= '<a href="editRoute.php?id='.$row["ID"].'" class="routeAction actionEdit"><span class="glyphicon glyphicon-pencil"></span></a>';
   }
 
 

@@ -29,6 +29,16 @@ body, html {
     transition: all 0.218s;
 }
 
+.menuRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuItemName {
+    margin-right: 10px;
+}
+
 .mainMenuItem:hover {
 	text-decoration: none;
     color: #fff;
@@ -446,6 +456,7 @@ font-weight: bold;
 }
 
 .routeAction {
+    color: #515151;
     height: 26px;
     width: 26px;
     position: absolute;
@@ -471,3 +482,31 @@ font-weight: bold;
     transition: all 0.218s;
 }
 
+
+.actionEdit {
+    top: 30px;
+}
+
+.actionEdit:hover {
+    background: #75bfff;
+    -o-transition: all 0.218s;
+    -moz-transition: all 0.218s;
+    -webkit-transition: all 0.218s;
+    transition: all 0.218s;
+}
+
+.UserItemsHeader {
+    padding-left: 30px;
+    font-weight: bold;
+}
+
+.userRoutes {
+    display: flex;
+    flex-direction: column;
+}
+
+.UserItem {
+    padding: 3px 30px;
+    display: flex;
+    justify-content: space-between;
+}

@@ -119,7 +119,6 @@ $('body').on('click', '.AplicationRegister', function () {
 });
 
 $('body').on('click', '.actionDelete', function () {
-
 	$.ajax({
 		url: 'inc/action-deleteRoute.php',
 		type: 'POST',
@@ -130,6 +129,19 @@ $('body').on('click', '.actionDelete', function () {
 		drawRoutes(Search);
 	});
 });
+
+
+// $('body').on('click', '.actionEdit', function () {
+// 	$.ajax({
+// 		url: 'inc/action-editRoute.php',
+// 		type: 'POST',
+// 		dataType: 'json',
+// 		data: {RouteID: $(this).data("routeid")},
+// 	})
+// 	.always(function(rez) {
+// 		drawRoutes(Search);
+// 	});
+// });
 
 
 

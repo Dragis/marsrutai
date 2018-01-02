@@ -6,6 +6,10 @@
 	if(empty($_SESSION['User'])) {
 		header('Location: login.php');
 	}
+
+	if ($_SESSION['User']["Type"] != "admin") {
+		header('Location: index.php');
+	}
 ?>
 
 <html lang="en">
@@ -24,14 +28,17 @@
 
 <div class="mainMenuWrapper">
 	<div class="menuLeft">
-		<a class="mainMenuItem  mainMenuItem-active" href="index.php">Maršrutai</a>
+		<a class="mainMenuItem" href="index.php">Maršrutai</a>
 
 				<?php
 				if ($_SESSION['User']["Type"] == "admin" || $_SESSION['User']["Type"] == "driver") {
 					echo '<a href="addRoute.php" type="button" class="mainMenuItem">Pridėti maršrutą</a>';
 				}
+				?>
+
+				<?php
 				if ($_SESSION['User']["Type"] == "admin") {
-					echo '<a href="users.php" type="button" class="mainMenuItem">Vartotojai</a>';
+					echo '<a href="users.php" type="button" class="mainMenuItem mainMenuItem-active">Vartotojai</a>';
 				}
 				?>
 
@@ -49,19 +56,16 @@
 	    <div class="container">
 			<div class="routesSearch">
 				<div class="searchItem">
-					<input class="SearchField" id="searchFrom" type="text" name="Search" placeholder="Įlipimas">
+					<input class="SearchField" id="Username" type="text" name="Search" placeholder="Vardas">
 					<div class="SearchButton"><span class="glyphicon glyphicon-search"></span></div>
 				</div>
-				<div class="searchItem">
-					<input class="SearchField" id="searchTo" type="text" name="Search" placeholder="Išlipimas">
-					<div class="SearchButton"><span class="glyphicon glyphicon-search"></span></div>
-				</div>
-				<div class="searchItem">
-					<input class="SearchField" id="searchDriver" type="text" name="Search" placeholder="Vairuotojas">
-					<div class="SearchButton"><span class="glyphicon glyphicon-search"></span></div>
-				</div>
-				<div class="searchItem">
-					<input class="SearchField" placeholder="Data" id="datepicker" />
+				<div class="searchItem">					
+					<select class="SearchField" id="type" placeholder="Tipas">
+						<option value="">visi</option>
+						<option value="driver">Vairuotojai</option>
+						<option value="passenger">Keleiviai</option>
+						<option value="admin">Administratoriai</option>
+					</select>
 				</div>
 				<div class="searchItem">					
 					<select class="SearchField" id="limit" placeholder="Rezultatai">
@@ -71,20 +75,15 @@
 						<option value="100">100</option>
 					</select>
 				</div>
-
-
 			</div>
 
-			<div id="routesHolder" class="routesHolder">
-				<div class="routeWrapper">
-				</div>
-			</div>
+			<div id="usersHolder" class="routesHolder"></div>
 	    </div>
 
 		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 		<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.7.0/combined/js/gijgo.min.js" type="text/javascript"></script>
-		<script src="js/scripts.js"></script>
+		<script src="js/users_scripts.js"></script>
 	</body>
 </html>

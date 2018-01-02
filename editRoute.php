@@ -6,6 +6,25 @@
 	if ($_SESSION['User']["Type"] != "admin" && $_SESSION['User']["Type"] != "driver") {
 		header('Location: index.php');
 	}
+
+
+	$RouteID = $_GET["id"];
+    $Route  = $conn->query("SELECT * FROM routes WHERE ID=".$RouteID." limit 1");
+    if ($Route->num_rows > 0)
+    {
+		while ($row = $Route->fetch_assoc()) {
+			if ($row["DriverID"] == $_SESSION['User']["ID"] || $_SESSION['User']["Type"] == "admin") {
+    			$ThisRoute = $row;
+			} else {
+				header('Location: index.php');
+			}
+		}
+    } else {
+		header('Location: index.php');
+    }
+	// var_dump($ThisRoute);
+	// var_dump($_GET["id"]);
+
 ?>
 
 <html lang="en">
@@ -25,18 +44,8 @@
 	<div class="menuLeft">
 		<a class="mainMenuItem " href="index.php">Maršrutai</a>
 		<a class="mainMenuItem  mainMenuItem-active" href="addRoute.php">Pridėti maršrutą</a>
-			<?php
-			if ($_SESSION['User']["Type"] == "admin") {
-				echo '<a href="users.php" type="button" class="mainMenuItem">Vartotojai</a>';
-			}
-			?>
 	</div>
 	<div class="menuRight">
-		<div class="menuItemName">
-				<?php
-					echo $_SESSION['User']["Username"];
-				?>
-		</div>
 		<a class="mainMenuItem" href="inc/action-logout.php">Atsijungti</a>
 	</div>
 </div>
@@ -46,7 +55,7 @@
 				
 				<div class="inputItem">
 					<label for="name" class="inputLabel">Pavadinimas: </label>
-					<input type="text" class="inputText" id="name">
+					<input type="text" class="inputText" id="name" value="<?php echo $ThisRoute["Name"] ?>">
 				</div>
 				<div class="inputItem">
 					<label  class="inputLabel">Pasikartojantis: </label>
@@ -57,7 +66,7 @@
 				</div>
 				<div class="inputItem" id="dateSelect" style="display: none;">
 					<label class="inputLabel">Data: </label>
-					<input class="inputText" id="datepicker" />
+					<input class="inputText" id="datepicker" value="<?php echo $ThisRoute["Date"] ?>" />
 				</div>
 				<div class="inputItem" id="weekdaySelect">
 					<label  class="inputLabel">Savaitės dienos: </label>
